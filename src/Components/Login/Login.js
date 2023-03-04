@@ -29,20 +29,20 @@ export const Login = () => {
             <div className="form-outline mb-2 mt-4">
               <input type="email" name="email" id="form3Example3" className="form-control form-control-lg"
                 placeholder="Enter a valid email address" onChange={handleChange} />
-              <label className="form-label" for="form3Example3">Email address</label>
+              <label className="form-label" >Email address</label>
             </div>
 
             <div className="form-outline mb-3">
               <input type="password" name="password" id="form3Example4" className="form-control form-control-lg" onChange={handleChange}
                 placeholder="Enter password" />
-              <label className="form-label" for="form3Example4">Password</label>
+              <label className="form-label" >Password</label>
             </div>
   
             <div className="d-flex justify-content-between align-items-center">
           
               <div className="form-check mb-0">
                 <input className="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                <label className="form-check-label" for="form2Example3">
+                <label className="form-check-label">
                   Remember me
                 </label>
               </div>

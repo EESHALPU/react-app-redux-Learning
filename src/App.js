@@ -13,7 +13,7 @@ import store from './utils/Sotre/Store';
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={store}> 
     <div className="App">
     <Navbar/>
       <Routes>

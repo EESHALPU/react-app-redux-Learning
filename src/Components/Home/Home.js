@@ -1,13 +1,19 @@
 import React, { useContext } from "react";
-import { Provider, useSelector } from "react-redux";
+import { Provider, useDispatch, useSelector } from "react-redux";
 import UserContext from "../../utils/Context/UserContext";
 import store from "../../utils/Sotre/Store";
 import { item_list } from "../../utils/Constant/Constant";
 import { Footer } from "../Footer.js/Footer";
+import { addItem } from "../../utils/Sotre/cartSlice";
+import { PopupModel } from "../../utils/Popup/PopupModel";
 export const Home = (props) => {
   const { user } = useContext(UserContext);
   const cartItem = useSelector((store) => store.cart.items);
-  console.log("cartItem", cartItem);
+  const dispatch = useDispatch()
+  console.log(cartItem)
+  const handleAddItem = (data)=>{
+      dispatch(addItem(data))
+  }
   return (
     <div>
       <div className="d-flex justify-content-center mt-4">
@@ -19,7 +25,7 @@ export const Home = (props) => {
                 data-scroll-reveal="enter left move 30px over 0.6s after 0.4s"
               >
                 <h1>
-                  Art Factory is free <strong>for YOU</strong>
+                  Shoaping Factory <strong>for YOU</strong>
                 </h1>
                 <p>
                   This template is available for 100% free of charge on
@@ -43,9 +49,10 @@ export const Home = (props) => {
               </div>
             </div>
           </div>
-
+          <PopupModel/>
           <div className="item-list">
             <div className="container">
+            <h5>Selected Cart Items :  {cartItem.length}</h5>
               <div className="row">
                 {
                   item_list.map((item,index)=>{
@@ -54,21 +61,20 @@ export const Home = (props) => {
                       <h5>{item.name}</h5>
                       <b style={{padding:"10px"}}>RS. {item.price}</b>
                       <img src={item.img_url}/>
-                      <button className= "btn btn-success">Add to Cart</button>
+                      <button className= "btn btn-primary" onClick={()=>handleAddItem(item)}><b>Add Cart</b></button>
                      </div>
                     )
-                   
                   })
                 }
               </div>
             </div>
           </div>
 
-          <section class="section" id="about2">
-            <div class="container">
-              <div class="row">
-                <div class="left-text col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix">
-                  <div class="left-heading">
+          <section className="section" id="about2">
+            <div className="container">
+              <div className="row">
+                <div className="left-text col-lg-5 col-md-12 col-sm-12 mobile-bottom-fix">
+                  <div className="left-heading">
                     <h5>Curabitur aliquam eget tellus id porta</h5>
                   </div>
                   <p>
@@ -78,7 +84,7 @@ export const Home = (props) => {
                   <ul>
                     <li>
                       <img src="/images/about-icon-01.png" alt="" />
-                      <div class="text">
+                      <div className="text">
                         <h6>Nulla ultricies risus quis risus</h6>
                         <p>
                           You can use this website template for commercial or
@@ -88,7 +94,7 @@ export const Home = (props) => {
                     </li>
                     <li>
                       <img src="/images/about-icon-02.png" alt="" />
-                      <div class="text">
+                      <div className="text">
                         <h6>Donec consequat commodo purus</h6>
                         <p>
                           You have no right to re-distribute this template as a
@@ -98,7 +104,7 @@ export const Home = (props) => {
                     </li>
                     <li>
                       <img src="/images/about-icon-03.png" alt="" />
-                      <div class="text">
+                      <div className="text">
                         <h6>Sed placerat sollicitudin mauris</h6>
                         <p>
                           If you have any question or comment, please{" "}
@@ -115,12 +121,12 @@ export const Home = (props) => {
                   </ul>
                 </div>
                 <div
-                  class="right-image col-lg-7 col-md-12 col-sm-12 mobile-bottom-fix-big"
+                  className="right-image col-lg-7 col-md-12 col-sm-12 mobile-bottom-fix-big"
                   data-scroll-reveal="enter right move 30px over 0.6s after 0.4s"
                 >
                   <img
                     src="/images/right-image.png"
-                    class="rounded img-fluid d-block mx-auto"
+                    className="rounded img-fluid d-block mx-auto"
                     alt="App"
                   />
                 </div>
