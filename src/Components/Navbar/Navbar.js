@@ -5,7 +5,7 @@ import store from '../../utils/Sotre/Store'
 
 export const Navbar = () => {
   let items = useSelector(store=>store.cart.items)
-  console.log('----item in navbar', items)
+   
   return (
     <div classNames='d-flex justify-content-end'>
     <nav className="navbar navbar-expand-lg navbar-dark bg-success">
@@ -20,7 +20,7 @@ export const Navbar = () => {
         <Link to = "/register" className="nav-item nav-link" href="#">Register</Link>
         <Link to = "/login" className="nav-item nav-link" href="#">Login</Link>
         <div className='cart'>
-        <Link to = "#" className="nav-item nav-link" href="#">Cart {items.length}</Link>
+        <Link to = "#" className="nav-item nav-link"onClick={()=>{}} href="#">Cart {items.length}</Link>
         </div>
       </div>
     </div>

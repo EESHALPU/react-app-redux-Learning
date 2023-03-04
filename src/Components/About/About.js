@@ -1,8 +1,10 @@
 import React from 'react'
+import { Model } from '../Modal/Model'
 
 export const About = () => {
   return (
     <div>
+      <Model/>
 
       <div className='d-flex justify-content-center'>
       <h1 className='text-dark'>About Us</h1>

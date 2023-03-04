@@ -7,7 +7,7 @@ export const PopupModel = () => {
   const [amount, setAmount] = useState(0)
   let total = amount
   item_list.map((item=>{
-    total = amount+item.price
+    total = total+item.price
      console.log(total)
     
   }))
@@ -52,7 +52,7 @@ export const PopupModel = () => {
   return (
     <div>
 
-        <button className='btn btn-secondary' onClick={()=>{
+        <button className='btn' style={{backgroundColor:"darkred"}} onClick={()=>{
             showModel?setModel(false):setModel(true)
         }}>Shopping Cart ({item_list.length})</button>
         {showModel && <MyModel/>}
