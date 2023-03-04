@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { clearCart } from '../Sotre/cartSlice'
 import store from '../Sotre/Store'
 export const PopupModel = () => {
   const [showModel, setModel] = useState(false)
@@ -14,9 +15,13 @@ export const PopupModel = () => {
   console.log('item list from model',item_list)
 
   const MyModel = () =>{
+    const dispatch = useDispatch()
+    const handleClearCart = ()=>{
+      dispatch(clearCart())
+    }
     return (
       <div className="popup-model">
-        <h5>Your items</h5>
+        <h5>Your items</h5> <button className='btn bg-primary' onClick={()=>handleClearCart()}>Clear Cart</button>
         <table className="table">
           <thead>
             <tr>

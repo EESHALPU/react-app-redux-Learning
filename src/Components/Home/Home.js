@@ -10,7 +10,7 @@ export const Home = (props) => {
   const { user } = useContext(UserContext);
   const cartItem = useSelector((store) => store.cart.items);
   const dispatch = useDispatch()
-  console.log(cartItem)
+  
   const handleAddItem = (data)=>{
       dispatch(addItem(data))
   }
